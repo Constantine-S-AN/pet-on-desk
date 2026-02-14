@@ -1,0 +1,70 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "live2d-desktop-pet",
+  "version": "0.1.0",
+  "identifier": "com.live2d.desktoppet",
+  "build": {
+    "beforeDevCommand": "pnpm dev",
+    "devUrl": "http://localhost:1420",
+    "beforeBuildCommand": "pnpm build",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "macOSPrivateApi": true,
+    "windows": [
+      {
+        "label": "main",
+        "title": "live2d-desktop-pet",
+        "width": 420,
+        "height": 420,
+        "resizable": false,
+        "transparent": true,
+        "decorations": false,
+        "alwaysOnTop": true,
+        "skipTaskbar": true
+      },
+      {
+        "label": "settings",
+        "title": "live2d-desktop-pet settings",
+        "width": 520,
+        "height": 480,
+        "alwaysOnTop": false,
+        "decorations": true,
+        "visible": false
+      }
+    ],
+    "trayIcon": {
+      "iconPath": "icons/icon.png",
+      "iconAsTemplate": true,
+      "showMenuOnLeftClick": true
+    },
+    "security": {
+      "csp": null,
+      "assetProtocol": {
+        "enable": true,
+        "scope": ["**"]
+      }
+    }
+  },
+  "bundle": {
+    "active": true,
+    "createUpdaterArtifacts": true,
+    "targets": "all",
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ]
+  },
+  "plugins": {
+    "updater": {
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IEM4RTY5MTU0NEFGNjhERjQKUldUMGpmWktWSkhteUZlOGRhd2tHWFl6STlONzcvYXBHL1hYc2hKck9INUxOR1BmeHNiMXNEb1EK",
+      "endpoints": ["https://example.com/live2d-desktop-pet/latest.json"],
+      "windows": {
+        "installMode": "passive"
+      }
+    }
+  }
+}

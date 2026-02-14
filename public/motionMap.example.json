@@ -1,0 +1,77 @@
+{
+  "version": 1,
+  "keyMap": {
+    "KeyA": {
+      "kind": "motion",
+      "group": "tap_left",
+      "index": 0,
+      "priority": 2,
+      "cooldownMs": 120
+    },
+    "KeyD": {
+      "kind": "motion",
+      "group": "tap_right",
+      "index": 0,
+      "priority": 2,
+      "cooldownMs": 120
+    },
+    "KeyS": {
+      "kind": "expression",
+      "name": "smile",
+      "cooldownMs": 800
+    },
+    "MouseLeft": {
+      "kind": "tween",
+      "preset": "bounce",
+      "strength": 0.8,
+      "cooldownMs": 80
+    },
+    "KeyQ": {
+      "kind": "combo",
+      "ruleId": "left-right-burst",
+      "cooldownMs": 200
+    }
+  },
+  "comboRules": [
+    {
+      "id": "left-right-burst",
+      "sequence": ["KeyA", "KeyD"],
+      "withinMs": 250,
+      "action": {
+        "kind": "motion",
+        "group": "combo_burst",
+        "priority": 3,
+        "cooldownMs": 500
+      },
+      "cooldownMs": 700
+    }
+  ],
+  "idle": {
+    "enabled": true,
+    "afterMs": 8000,
+    "intervalMs": 6000,
+    "actions": [
+      {
+        "action": {
+          "kind": "motion",
+          "group": "idle_1"
+        },
+        "weight": 3
+      },
+      {
+        "action": {
+          "kind": "motion",
+          "group": "idle_2"
+        },
+        "weight": 2
+      },
+      {
+        "action": {
+          "kind": "expression",
+          "name": "blink"
+        },
+        "weight": 1
+      }
+    ]
+  }
+}
